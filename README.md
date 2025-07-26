@@ -14,29 +14,6 @@ A demo gRPC-based authentication service written in Go, implementing user **regi
 
 ---
 
-## 📁 Project Structure
-
-```
-grpc_demo_auth/
-├── app/
-│ ├── cmd/ # Entry points (client/server)
-│ ├── internal/
-│ │ ├── app/ # Core app logic
-│ │ │ ├── client.go
-│ │ │ └── server.go
-│ │ ├── domains/ # Domain models (e.g. User)
-│ │ ├── repository/ # Database access layer
-│ │ └── service/ # Business logic (auth service)
-├── pkg/
-│ └── jwt/ # JWT token generation and validation logic
-├── proto/ # gRPC .proto definitions
-├── main.go # Entrypoint
-├── go.mod / go.sum
-└── Makefile
-```
-
----
-
 ## 🔑 JWT Implementation
 
 JWT token generation, parsing, and validation logic is located in:
