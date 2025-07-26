@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package auth;
+
+option go_package = "pkg/grpc;proto";
+
+service AuthService {
+  rpc Register(RegisterRequest) returns(RegisterResponse);
+  rpc Login(LoginRequest) returns(LoginResponse);
+  rpc RefreshToken(RefreshTokenRequest) returns(RefreshTokenResponse);
+}
+
+message RegisterRequest {
+    string Id = 1;
+    string Username = 2;
+    string Password = 3;
+    string RepeatedPassword = 4;
+    google.protobuf.Timestamp CreatedAt = 5;
+}
+
+message RegisterResponse {
+    string Id = 1;
+}
+
+message LoginRequest {
+    string Username = 2;
+    string Password = 3;
+}
+
+message LoginResponse {
+    string AccessToken = 1;
+    string RefreshToken = 2;
+}
+
+message RefreshTokenRequest {
+    string RefreshToken = 1;
+}
+
+message RefreshTokenResponse {
+    string AccessToken = 1;
+    string RefreshToken = 2;
+}
+
+
